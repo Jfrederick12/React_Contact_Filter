@@ -1,0 +1,13 @@
+
+.flex-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #FFFFFF;
+  margin-top:10px;
+}
+
+.flex-grid .col {
+  color: #D7DBDC;
+  width: 32%;
+}
