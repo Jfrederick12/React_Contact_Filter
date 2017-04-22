@@ -14,7 +14,8 @@ class ResultsList extends Component {
 	}
 
 	searchInput(event) {
-		let searchedContacts = this.state.contacts.filter((contact) => {
+		let contacts = this.props.data
+		let searchedContacts = contacts.filter((contact) => {
 			return contact.sender.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ;
 		});
 		this.setState({
@@ -27,7 +28,8 @@ class ResultsList extends Component {
 	}	
 
 	searchOrganized(organized) {
-		let organizedContacts = this.state.contacts.filter((contact) => {
+		const contacts = this.props.data
+		let organizedContacts = contacts.filter((contact) => {
 			return contact.organize === organized;
 		})
 		this.setState({
