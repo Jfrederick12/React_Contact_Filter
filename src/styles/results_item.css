@@ -11,6 +11,7 @@
 
 .flex-grid .col {
   font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
   color: #555555;
   width: 50%;
 }
@@ -28,4 +29,8 @@
       margin: 0 0 10px 0;
     }
   }
+}
+
+#active {
+  background-color: red;
 }

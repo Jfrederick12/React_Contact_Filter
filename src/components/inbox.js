@@ -7,7 +7,13 @@ class Inbox extends Component {
 	constructor() {
 		super();
 		this.state = {
-			contacts: Data
+			contacts: Data.sort((a,b) => {
+				let firstName = a.sender.toLowerCase();
+				let secondName = b.sender.toLowerCase();
+				return (
+					(firstName < secondName) ? -1 : (firstName > secondName)
+				);
+			}),
 		}
 	}
 
@@ -22,7 +28,3 @@ class Inbox extends Component {
 }
 
 export default Inbox;
-
-				// {this.state.contacts.map((contact) => {
-				// 	return <p>{contact.sender}</p>
-				// })}
