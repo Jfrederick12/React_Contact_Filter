@@ -9,12 +9,14 @@ class ResultsList extends Component {
 		this.state = {
 			contacts: this.props.data,
 			search: '',
-			searchedContacts: this.props.data
+			searchedContacts: this.props.data,
 		}
+
+		this.handleChange = this.handleChange.bind(this)
 	}
 
 	searchInput(event) {
-		let contacts = this.props.data
+		const contacts = this.props.data
 		let searchedContacts = contacts.filter((contact) => {
 			return contact.sender.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ;
 		});
@@ -22,20 +24,32 @@ class ResultsList extends Component {
 			search: event.target.value,
 			contacts: searchedContacts				
 		})
-		console.log()
-		console.log(this.state.search)
-		console.log(this.state.contacts)
 	}	
 
-	searchOrganized(organized) {
+	handleChange(event) {
 		const contacts = this.props.data
-		let organizedContacts = contacts.filter((contact) => {
-			return contact.organize === organized;
-		})
-		this.setState({
-			contacts: organizedContacts
-		})
-	}
+		if (event.target.value === 'all') {
+			this.setState({contacts: contacts})
+		} else {
+			let organizedContacts = contacts.filter((contact) => {
+				return contact.organize.toString() === event.target.value;
+			})
+			this.setState({
+				contacts: organizedContacts
+			})    
+		}
+  }
+
+	// searchOrganized(event) {
+	// 	this.setState({value: event.target.value});
+	// 	const contacts = this.props.data
+	// 	let organizedContacts = contacts.filter((contact) => {
+	// 		return contact.organize === event.target.value;
+	// 	})
+	// 	this.setState({
+	// 		contacts: organizedContacts
+	// 	})
+	// }
 
 
 	render() {
@@ -46,8 +60,12 @@ class ResultsList extends Component {
 
 		return(
 			<div className="results-list">
-				<button onClick={ () => this.searchOrganized(false)}>unorganized</button>
-				<button onClick={ () =>this.searchOrganized(true)}>organized</button>
+
+			<select onChange={this.handleChange}>
+				<option value='all'>View All</option>
+				<option value='true'>Organized</option>
+				<option value='false'>Unorganized</option>
+			</select>
 				<input type="text" value={this.state.search} placeholder="Search for a sender..." onChange={this.searchInput.bind(this)}/>
 				< SearchHeader />
 				{this.state.contacts.map((contact) => {
@@ -65,8 +83,5 @@ class ResultsList extends Component {
 	}
 }
 
-// `${show.title} ${show.description}`.toUpperCase().indexOf(this.props.searchTerm.toUpperCase()) >= 0)
-
 export default ResultsList;
 
-// < ResultsItem contact={contact} />
