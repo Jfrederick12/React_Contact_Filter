@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:500')
+
+.flex-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #FFFFFF;
+  margin-top:10px;
+}
+
+.flex-grid .col {
+  font-family: 'Quicksand', sans-serif;
+  color: #555555;
+  width: 30%;
+}

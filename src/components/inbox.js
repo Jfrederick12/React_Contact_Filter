@@ -11,6 +11,7 @@ class Inbox extends Component {
 		}
 	}
 
+
 	render() {
 		return(
 			<div>
