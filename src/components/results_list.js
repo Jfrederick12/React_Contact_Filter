@@ -26,6 +26,14 @@ class ResultsList extends Component {
 		console.log(this.state.contacts)
 	}	
 
+	searchOrganized(organized) {
+		let organizedContacts = this.state.contacts.filter((contact) => {
+			return contact.organize === organized;
+		})
+		this.setState({
+			contacts: organizedContacts
+		})
+	}
 
 
 	render() {
@@ -36,10 +44,19 @@ class ResultsList extends Component {
 
 		return(
 			<div className="results-list">
-				<input type="text" value={this.state.search} onChange={this.searchInput.bind(this)}/>
+				<button onClick={ () => this.searchOrganized(false)}>unorganized</button>
+				<button onClick={ () =>this.searchOrganized(true)}>organized</button>
+				<input type="text" value={this.state.search} placeholder="Search for a sender..." onChange={this.searchInput.bind(this)}/>
 				< SearchHeader />
 				{this.state.contacts.map((contact) => {
-					return <p>{contact.sender}</p>
+					return (
+						<div className="flex-grid">
+							<div className="col">{contact.sender}</div>
+							<div className="col">{contact.domain}</div>
+							<div className="col">{contact.email}</div>
+							<div className="col">{contact.folder}</div>
+						</div>						
+					)
 				})}
 			</div>
 		)
