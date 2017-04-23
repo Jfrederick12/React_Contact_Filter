@@ -14,7 +14,6 @@ class ResultsList extends Component {
 			isChecked: {}
 		}
 
-		this.handleChange = this.handleChange.bind(this)
 	}
 
 	searchInput(event) {
@@ -42,23 +41,19 @@ class ResultsList extends Component {
 		}
   }
 
+
   checkBox(selectedContact) {
   	let updatedContacts = this.props.data
   	if (selectedContact.organize === true) {
-  		console.log('pizza!')
   		selectedContact.organize = false
-  		for (let i = 0; i < selectedContact.length; i ++) {
-  			if (this.state.contacts[i].sender === selectedContact.sender) {
-  				updatedContacts.splice(i, this.state.contacts[i].sender)
-  				this.setState({ contacts: updatedContacts})
-  				console.log(this.state.contacts[i].sender)
-  			}
-  		}
+  		updatedContacts.filter((contact) => {
+  			return contact.id != selectedContact.id
+  		})
+  		this.setState({ contacts: updatedContacts})
   	} else {
   		selectedContact.organize = true
   		updatedContacts.push(selectedContact)
   		this.setState({ contacts: updatedContacts })
-  		console.log('nope')
   	}
   }
 
@@ -67,7 +62,7 @@ class ResultsList extends Component {
 	render() {
 		return(
 			<div className="results-list">
-				<select onChange={this.handleChange}>
+				<select onChange={this.handleChange.bind(this)}>
 					<option value='all'>View All</option>
 					<option value='true'>Organized</option>
 					<option value='false'>Unorganized</option>
