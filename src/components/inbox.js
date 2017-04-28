@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import ResultsList from './results_list'
+import ResultsList from './results_list';
+import SearchBar from './search_bar';
+import ItemList from './item_list';
 import '../styles/inbox.css';
 import Data from '../data/mock_rp_data.json'
 
@@ -14,14 +16,28 @@ class Inbox extends Component {
 					(firstName < secondName) ? -1 : (firstName > secondName)
 				);
 			}),
+			filterText: ''
 		}
+		this.handleUserInput = this.handleUserInput.bind(this)
 	}
 
+  handleUserInput(filterText) {
+    this.setState({
+    	filterText: filterText
+    })
+  }
 
 	render() {
 		return(
 			<div>
-				< ResultsList data={this.state.contacts} />
+				< SearchBar
+				  filterText={this.state.filterText}
+				  onUserInput={this.handleUserInput}
+				/>
+				< ItemList
+				  contacts={this.state.contacts}
+          filterText={this.state.filterText}
+			  />
 			</div>
 		)
 	}

@@ -8,27 +8,25 @@ class SearchBar extends Component {
 			search: '',
 
 		}
-
+		this.handleChange = this.handleChange.bind(this)
 	}
 
-	searchInput(event) {
-		let searchedContacts = this.props.contacts.filter((contact) => {
-			return contact.sender.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ;
-		});
-		this.setState({
-			search: event.target.value,
-			contacts: searchedContacts				
-		})
-		console.log()
-		console.log(this.state.search)
-		console.log(this.state.contacts)
-	}	
-
+  handleChange() {
+    this.props.onUserInput(
+      this.refs.filterTextInput.value
+    );
+  }
 
 	render() {
 		return(
 			<div>
-				<input type="text" value={this.state.search} placeholder="Search for a sender..." onChange={this.searchInput.bind(this)}/>
+        <input
+          type="text"
+          placeholder="Search by sender..."
+          value={this.props.filterText}
+          ref="filterTextInput"
+          onChange={this.handleChange}
+        />
 			</div>
 		)
 	}

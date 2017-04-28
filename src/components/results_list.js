@@ -16,30 +16,30 @@ class ResultsList extends Component {
 
 	}
 
-	searchInput(event) {
-		const contacts = this.props.data
-		let searchedContacts = contacts.filter((contact) => {
-			return contact.sender.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ;
-		});
-		this.setState({
-			search: event.target.value,
-			contacts: searchedContacts				
-		})
-	}	
+	// searchInput(event) {
+	// 	const contacts = this.props.data
+	// 	let searchedContacts = contacts.filter((contact) => {
+	// 		return contact.sender.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1 ;
+	// 	});
+	// 	this.setState({
+	// 		search: event.target.value,
+	// 		contacts: searchedContacts				
+	// 	})
+	// }	
 
-	handleChange(event) {
-		const contacts = this.props.data
-		if (event.target.value === 'all') {
-			this.setState({contacts: contacts})
-		} else {
-			let organizedContacts = contacts.filter((contact) => {
-				return contact.folder === event.target.value;
-			})
-			this.setState({
-				contacts: organizedContacts
-			})    
-		}
-  }
+	// handleChange(event) {
+	// 	const contacts = this.props.data
+	// 	if (event.target.value === 'all') {
+	// 		this.setState({contacts: contacts})
+	// 	} else {
+	// 		let organizedContacts = contacts.filter((contact) => {
+	// 			return contact.folder === event.target.value;
+	// 		})
+	// 		this.setState({
+	// 			contacts: organizedContacts
+	// 		})    
+	// 	}
+ //  }
 
   folderChange(event) {
   	console.log(event.target.value)
@@ -76,19 +76,6 @@ class ResultsList extends Component {
 	render() {
 		return(
 			<div className="results-list">
-				<select onChange={this.handleChange.bind(this)}>
-					<option value='all'>View All</option>
-					<option value='Real Estate'>Real Estate</option>
-					<option value='Groups'>Groups</option>
-					<option value='Social Networking'>Social Networking</option>
-					<option value='Entertainment'>Entertainment</option>
-					<option value='Jobs'>Jobs</option>
-					<option value='News'>News</option>
-					<option value='Finance'>Finance</option>
-					<option value='Business'>Business</option>
-				</select>
-				<input type="text" value={this.state.search} placeholder="Search for a sender..." onChange={this.searchInput.bind(this)}/>
-				< SearchHeader />
 				{this.state.contacts.map((contact) => {
 					return (
 						<div className={`flex-grid ${(contact.organize ? 'active' : 'hidden')}` }>
