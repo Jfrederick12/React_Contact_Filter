@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ResultsList from './results_list';
 import SearchBar from './search_bar';
 import ItemList from './item_list';
 import '../styles/inbox.css';
@@ -34,10 +33,12 @@ class Inbox extends Component {
 				  filterText={this.state.filterText}
 				  onUserInput={this.handleUserInput}
 				/>
-				< ItemList
-				  contacts={this.state.contacts}
-          filterText={this.state.filterText}
-			  />
+				<div className="item-container">
+					< ItemList
+					  contacts={this.state.contacts}
+	          filterText={this.state.filterText}
+				  />
+			  </div>
 			</div>
 		)
 	}

@@ -7,7 +7,6 @@ class SearchHeader extends Component {
 			<div className="flex-grid">
 				<div className="col">Organized</div>
 				<div className="col">Sender</div>
-				<div className="col">Domain</div>
 				<div className="col">Email</div>
 				<div className="col">Folder</div>
 			</div>

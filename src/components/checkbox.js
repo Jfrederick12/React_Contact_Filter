@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import '../styles/results_list.css';
 
 class CheckBox extends Component {
-	constructor(props) {
-		super(props)
-	}
 
 	handleCheck() {
 		let selectedContact = this.props.contact
