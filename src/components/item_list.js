@@ -42,7 +42,7 @@ class ItemList extends Component {
 		if (searchContacts.length === 0) {
 			contactList = this.state.contacts.map((contact) => {
 				return (
-					<div className="flex-grid">
+					<div key={contact.email} className="flex-grid">
 						< CheckBox contact={contact} handleCheck={this.handleCheck} />			
 						<div className="col">{contact.sender}</div>
 						<div className="col">{contact.email}</div>
@@ -56,7 +56,7 @@ class ItemList extends Component {
 		} else {
 			contactList = searchContacts.map((contact) => {
 				return (
-					<div className="flex-grid">
+					<div key={contact.email} className="flex-grid">
 						< CheckBox contact={contact} handleCheck={this.handleCheck} />	
 						<div className="col">{contact.sender}</div>
 						<div className="col">{contact.email}</div>
