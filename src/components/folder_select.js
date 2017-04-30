@@ -4,11 +4,10 @@ import '../styles/results_list.css';
 class FolderSelect extends Component {
 	handleFolderChange(event) {
 		this.props.handleFolderChange(
-			event.target.value
+			event.target.value,
+			this.props.contact
 		)
 	}
-
-
 
 	render() {
 		const folderOptions = [

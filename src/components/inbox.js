@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './search_bar';
 import ItemList from './item_list';
+import SearchFilter from './search_filter';
 import '../styles/inbox.css';
 import Data from '../data/mock_rp_data.json'
 
@@ -15,15 +16,29 @@ class Inbox extends Component {
 					(firstName < secondName) ? -1 : (firstName > secondName)
 				);
 			}),
-			filterText: ''
+			filterText: '',
+			filterSelect: '',
+			filteredContacts: []
 		}
 		this.handleUserInput = this.handleUserInput.bind(this)
+		this.handleFilterChange = this.handleFilterChange.bind(this)
 	}
 
   handleUserInput(filterText) {
     this.setState({
     	filterText: filterText
     })
+  }
+
+  handleFilterChange(filterSelect) {
+  	const filteredContacts = this.state.contacts.filter((contact) => {
+  		return contact.folder === filterSelect
+  	})
+
+  	this.setState({
+  		filterSelect: filterSelect,
+  		filteredContacts: filteredContacts
+  	})
   }
 
 	render() {
@@ -33,10 +48,13 @@ class Inbox extends Component {
 				  filterText={this.state.filterText}
 				  onUserInput={this.handleUserInput}
 				/>
+				< SearchFilter handleFilterChange={this.handleFilterChange} />
 				<div className="item-container">
 					< ItemList
 					  contacts={this.state.contacts}
 	          filterText={this.state.filterText}
+  				  filterSelect={this.state.filterSelect}
+  				  filteredContacts={this.state.filteredContacts}
 				  />
 			  </div>
 			</div>

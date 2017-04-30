@@ -22,30 +22,48 @@ class ItemList extends Component {
   	})
   }
 
-  handleFolderChange(folder) {
-  	console.log(folder)
+  handleFolderChange(folder, contact) {
+  	contact.folder = folder
+
+   //  this.state.contacts.filter((contact) => {
+  	// 	contact.folder !== folder
+  	// })
+
   	this.setState({
   		folder: folder
   	})
   }
 
 	render() {
-		let searchContacts = []
+
+		let searchContacts = this.state.contacts
+
+		// let searchContacts = this.state.contacts.filter((contact) => {
+		// 	return this.props.filterSelect === contact.folder
+		// })
 		let contactList = []
-		if (this.props.filterText !== '') {
-			searchContacts = this.state.contacts.filter((contact) => {
-				return contact.sender.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1 ;
+		console.log(this.props.filterSelect)
+
+		// if there is nothing logged in the input
+		if (this.props.filterText.length !== 0 || this.props.filterSelect !== 'All') {
+			//set searchContacts array to filter out all contacts EXCEPT the one that matches the given input
+			searchContacts = this.props.filteredContacts.filter((contact) => {
+				return contact.sender.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1
 			})
-		}
+		} 
 
 
-		if (searchContacts.length === 0) {
-			contactList = this.state.contacts.map((contact) => {
+
+
+		console.log(searchContacts)
+
+			contactList = searchContacts.map((contact) => {
 				return (
-					<div key={contact.email} className="flex-grid">
+					<div className="flex-grid">
 						< CheckBox contact={contact} handleCheck={this.handleCheck} />			
 						<div className="col">{contact.sender}</div>
 						<div className="col">{contact.email}</div>
+						<div className="col">{contact.folder}</div>
 						< FolderSelect 
 						  contact={contact} 
 						  handleFolderChange={this.handleFolderChange}
@@ -53,21 +71,7 @@ class ItemList extends Component {
 					</div>
 				)
 			})
-		} else {
-			contactList = searchContacts.map((contact) => {
-				return (
-					<div key={contact.email} className="flex-grid">
-						< CheckBox contact={contact} handleCheck={this.handleCheck} />	
-						<div className="col">{contact.sender}</div>
-						<div className="col">{contact.email}</div>
-						< FolderSelect 
-						  contact={contact} 
-						  handleFolderChange={this.handleFolderChange}
-						/>
-					</div>
-				)
-			})
-		}
+	
 
 		return(
 			<div>
@@ -80,3 +84,36 @@ class ItemList extends Component {
 }
 
 export default ItemList;
+
+
+
+
+		// if (searchContacts.length === 0) {
+		// 	contactList = searchContacts.map((contact) => {
+		// 		return (
+		// 			<div className="flex-grid">
+		// 				< CheckBox contact={contact} handleCheck={this.handleCheck} />			
+		// 				<div className="col">{contact.sender}</div>
+		// 				<div className="col">{contact.email}</div>
+		// 				< FolderSelect 
+		// 				  contact={contact} 
+		// 				  handleFolderChange={this.handleFolderChange}
+		// 				/>
+		// 			</div>
+		// 		)
+		// 	})
+		// } else {
+		// 	contactList = searchContacts.map((contact) => {
+		// 		return (
+		// 			<div key={contact.email} className="flex-grid">
+		// 				< CheckBox contact={contact} handleCheck={this.handleCheck} />	
+		// 				<div className="col">{contact.sender}</div>
+		// 				<div className="col">{contact.email}</div>
+		// 				< FolderSelect 
+		// 				  contact={contact} 
+		// 				  handleFolderChange={this.handleFolderChange}
+		// 				/>
+		// 			</div>
+		// 		)
+		// 	})
+		// }
