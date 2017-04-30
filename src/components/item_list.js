@@ -8,9 +8,10 @@ class ItemList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			contacts: this.props.contacts,
+			contacts: this.props.filteredContacts,
 			checked: true,
-			folder: ''
+			folder: '',
+			searchContacts: this.props.filteredContacts
 		}
 		this.handleCheck = this.handleCheck.bind(this)
 		this.handleFolderChange = this.handleFolderChange.bind(this)
@@ -25,53 +26,46 @@ class ItemList extends Component {
   handleFolderChange(folder, contact) {
   	contact.folder = folder
 
-   //  this.state.contacts.filter((contact) => {
-  	// 	contact.folder !== folder
-  	// })
+    let changedContact = this.props.filteredContacts.filter((contact) => {
+  		return contact.folder !== folder
+  	})
+    // filter is working... need to pass it through the list
+  	console.log(changedContact)
 
   	this.setState({
-  		folder: folder
+  		folder: folder,
+  		searchContacts: changedContact
   	})
   }
 
 	render() {
-
-		let searchContacts = this.state.contacts
-
-		// let searchContacts = this.state.contacts.filter((contact) => {
-		// 	return this.props.filterSelect === contact.folder
-		// })
-		let contactList = []
-		console.log(this.props.filterSelect)
+ 
+		let contactList = this.state.searchContacts
 
 		// if there is nothing logged in the input
 		if (this.props.filterText.length !== 0 || this.props.filterSelect !== 'All') {
 			//set searchContacts array to filter out all contacts EXCEPT the one that matches the given input
-			searchContacts = this.props.filteredContacts.filter((contact) => {
+			contactList = this.props.filteredContacts.filter((contact) => {
 				return contact.sender.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1
 			})
 		} 
 
 
+		contactList = contactList.map((contact) => {
+			return (
+				<div className="flex-grid">
+					< CheckBox contact={contact} handleCheck={this.handleCheck} />			
+					<div className="col">{contact.sender}</div>
+					<div className="col">{contact.email}</div>
+					<div className="col">{contact.folder}</div>
+					< FolderSelect 
+					  contact={contact} 
+					  handleFolderChange={this.handleFolderChange}
+					/>
+				</div>
+			)
+		})
 
-
-		console.log(searchContacts)
-
-			contactList = searchContacts.map((contact) => {
-				return (
-					<div className="flex-grid">
-						< CheckBox contact={contact} handleCheck={this.handleCheck} />			
-						<div className="col">{contact.sender}</div>
-						<div className="col">{contact.email}</div>
-						<div className="col">{contact.folder}</div>
-						< FolderSelect 
-						  contact={contact} 
-						  handleFolderChange={this.handleFolderChange}
-						/>
-					</div>
-				)
-			})
-	
 
 		return(
 			<div>
