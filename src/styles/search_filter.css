@@ -1,12 +1,11 @@
-.folder-option {
+.search-select {
     padding: 0;
     margin: 0;
-    border-right: 10px solid black;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid #ffd149;
     width: 100px;
     border-radius: 0px;
     overflow: hidden;
-    background-color: white;
+    background-color: #F5F5F5;
 }
 
 .Business {
@@ -55,7 +54,7 @@ select {
 }
 
 select:focus {
-  outline: none;
+    outline: none;
 }
 
 select:disabled {

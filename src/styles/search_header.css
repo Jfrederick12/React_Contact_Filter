@@ -13,3 +13,19 @@
   color: #555555;
   width: 30%;
 }
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0px 10px 20px;
+  margin-top:10px;
+	background-color: #282828;
+	color: white;
+}
+
+.search-header div {
+  font-family: 'Quicksand', sans-serif;
+  color: white;
+  width: 30%;
+  /*font-weight: bold;*/
+}

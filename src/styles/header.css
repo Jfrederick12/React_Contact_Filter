@@ -1,4 +1,6 @@
 h1 {
-  color: black;
-  text-align: center;
+	font-style: helvetica;
+	padding: 20px;
+  color: #282828;
+  text-align: left;
 }

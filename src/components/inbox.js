@@ -44,11 +44,17 @@ class Inbox extends Component {
 	render() {
 		return(
 			<div>
-				< SearchBar
-				  filterText={this.state.filterText}
-				  onUserInput={this.handleUserInput}
-				/>
-				< SearchFilter handleFilterChange={this.handleFilterChange} />
+				<div className="search-container">
+					<div className="search-bar">
+					< SearchBar
+					  filterText={this.state.filterText}
+					  onUserInput={this.handleUserInput}
+					/>
+					</div>
+					<div className="search-filter">
+					< SearchFilter handleFilterChange={this.handleFilterChange} />
+					</div>
+				</div>
 				<div className="item-container">
 					< ItemList
 					  contacts={this.state.contacts}

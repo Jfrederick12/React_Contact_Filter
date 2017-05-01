@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/search_filter.css';
 
 class SearchFilter extends Component {
 	handleFilterChange(event) {
@@ -21,11 +22,13 @@ class SearchFilter extends Component {
 		  'Sports'
 		] 
 		return(
-			<select onChange={ this.handleFilterChange.bind(this)}>
-				{folderOptions.map((folder) => {
-					return <option value={folder}>{folder}</option>
-				})}
-			</select>
+			<div className="search-select">
+				<select onChange={ this.handleFilterChange.bind(this)}>
+					{folderOptions.map((folder) => {
+						return <option value={folder}>{folder}</option>
+					})}
+				</select>
+			</div>
 		)
 	}
 }
