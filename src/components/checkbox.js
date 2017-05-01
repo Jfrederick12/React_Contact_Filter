@@ -8,7 +8,6 @@ class CheckBox extends Component {
 		this.props.handleCheck(
 			selectedContact.organize ? selectedContact.organize = false : selectedContact.organize = true
 		)
-		console.log(selectedContact.organize)
 	}
 
 	render() {
