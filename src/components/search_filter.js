@@ -12,18 +12,13 @@ class SearchFilter extends Component {
 		const folderOptions = [
 			'All',
 		  'Business', 
-		  'Travel', 
 		  'Vacation', 
+		  'Hobbies', 
 		  'Entertainment', 
-		  'Jobs',
-		  'News',
-		  'Finance',
-		  'Home',
-		  'Education',
-		  'Real Estate',
-		  'Social Networking',
-		  'Groups',
-		  'Shopping'
+		  'News', 
+		  'Shopping', 
+		  'Tech', 
+		  'Sports'
 		] 
 		return(
 			<select onChange={ this.handleFilterChange.bind(this)}>

@@ -3,13 +3,13 @@ import SearchBar from './search_bar';
 import ItemList from './item_list';
 import SearchFilter from './search_filter';
 import '../styles/inbox.css';
-import Data from '../data/mock_rp_data.json'
+import contactList from '../data/seeds';
 
 class Inbox extends Component {
 	constructor() {
 		super();
 		this.state = {
-			contacts: Data.sort((a,b) => {
+			contacts: contactList.sort((a,b) => {
 				let firstName = a.sender.toLowerCase();
 				let secondName = b.sender.toLowerCase();
 				return (

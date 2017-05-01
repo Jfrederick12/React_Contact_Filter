@@ -12,18 +12,13 @@ class FolderSelect extends Component {
 	render() {
 		const folderOptions = [
 		  'Business', 
-		  'Travel', 
 		  'Vacation', 
+		  'Hobbies', 
 		  'Entertainment', 
-		  'Jobs',
-		  'News',
-		  'Finance',
-		  'Home',
-		  'Education',
-		  'Real Estate',
-		  'Social Networking',
-		  'Groups',
-		  'Shopping'
+		  'News', 
+		  'Shopping', 
+		  'Tech', 
+		  'Sports'
 		] 
 
 		let filteredFolders = folderOptions.filter((folder) => {
