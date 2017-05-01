@@ -32,26 +32,23 @@ class FolderSelect extends Component {
 
 		const contactFolder = this.props.contact.folder
 
-		if (this.props.contact.organize) {
-			return(
-				<div className="col">
-					<select disabled className="folder-option">
-						<option value={contactFolder}>{contactFolder}</option>
-					</select>
-				</div>
-			)
-		} else {
 		return(
 			<div className="col">
-				<select className="folder-option" onChange={ this.handleFolderChange.bind(this)}>
-					<option value={contactFolder}>{contactFolder}</option>
-					{filteredFolders.map((folder) => {
-						return <option key={folder} value={folder}>{folder}</option>
-					})}
-				</select>
+				{
+					this.props.contact.organize ? 
+						<select disabled className="folder-option">
+							<option value={contactFolder}>{contactFolder}</option>
+						</select>
+					:
+						<select className="folder-option" onChange={ this.handleFolderChange.bind(this)}>
+							<option value={contactFolder}>{contactFolder}</option>
+							{filteredFolders.map((folder) => {
+								return <option key={folder} value={folder}>{folder}</option>
+							})}
+						</select>						
+				}
 			</div>
 		)
-		}
 	}
 }
 
