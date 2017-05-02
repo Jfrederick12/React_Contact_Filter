@@ -1,0 +1,66 @@
+.folder-option {
+    padding: 0;
+    margin: 0;
+    border-right: 10px solid black;
+    border-bottom: 1px solid gray;
+    width: 100px;
+    border-radius: 0px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.Business {
+	border-right: 10px solid #ff4949;
+}
+
+.Vacation {
+	border-right: 10px solid #ff7349;
+}
+
+.Hobbies {
+	border-right: 10px solid #ffd149;
+}
+
+.Entertainment {
+	border-right: 10px solid #49ff94;
+}
+
+.News {
+	border-right: 10px solid #49efff;
+}
+
+.Shopping {
+	border-right: 10px solid #494cff;
+}
+
+.Tech {
+	border-right: 10px solid #c549ff;
+}
+
+.Sports {
+	border-right: 10px solid #ff49cb;
+}
+
+select {
+    padding: 5px 5px;
+    width: 130%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    transition: background-color 0.5s ease;
+}
+
+select:focus {
+  outline: none;
+}
+
+select:disabled {
+	background-color: #efede8;
+	border-right: 10px solid #e0dcd2;
+	border-radius: 0px;
+	transition: background-color 0.5s ease;
+}

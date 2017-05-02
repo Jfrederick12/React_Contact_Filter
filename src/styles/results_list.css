@@ -1,4 +1,55 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 .results-list {
   background-color: #F5F5F5;
   padding:20px;
+}
+
+.folder-option {
+  width: 150px;
+  font-size: 12px;
+}
+
+.flex-grid {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #FFFFFF;
+  margin: 15px;
+  border-radius: 5px;
+}
+
+.flex-grid .col {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 13px;
+  color: #555555;
+  width: 50%;
+}
+
+.col {
+  padding: 0px 20px 0px 10px;
+}
+
+@media (max-width: 400px) {
+  .flex-grid,
+  .flex-grid-thirds {
+    display: block;
+    .col {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+.active {
+  background-color: gray;
+  opacity: 0.4;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 10;
 }

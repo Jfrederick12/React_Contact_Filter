@@ -5,7 +5,7 @@ class Header extends Component {
 	render() {
 		return(
 			<div>
-				<h1>Email Organizer</h1>
+				<h1>Contact-o-Matic</h1>
 			</div>
 		)
 	}
