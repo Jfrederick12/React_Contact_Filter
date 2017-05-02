@@ -32,7 +32,7 @@ class Inbox extends Component {
 
   handleFilterChange(filterSelect) {
   	const filteredContacts = this.state.contacts.filter((contact) => {
-  		return contact.folder === filterSelect
+  		return contact.folder === filterSelect || contact.organize.toString() === filterSelect.toLowerCase()
   	})
 
   	this.setState({
@@ -45,14 +45,14 @@ class Inbox extends Component {
 		return(
 			<div>
 				<div className="search-container">
-					<div className="search-bar">
-					< SearchBar
-					  filterText={this.state.filterText}
-					  onUserInput={this.handleUserInput}
-					/>
-					</div>
 					<div className="search-filter">
-					< SearchFilter handleFilterChange={this.handleFilterChange} />
+						< SearchFilter handleFilterChange={this.handleFilterChange} />
+					</div>
+					<div className="search-bar">
+						< SearchBar
+						  filterText={this.state.filterText}
+						  onUserInput={this.handleUserInput}
+						/>
 					</div>
 				</div>
 				<div className="item-container">

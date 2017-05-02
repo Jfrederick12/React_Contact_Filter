@@ -28,7 +28,11 @@ class ItemList extends Component {
 			<div>
 				< SearchHeader />
 				{contactList.map((contact) => {
-					return < ListItem contact={contact} />
+					return (
+						<div key={contact.sender}>
+							< ListItem contact={contact} />
+						</div>
+					)
 				})}
 			</div>
 		)
