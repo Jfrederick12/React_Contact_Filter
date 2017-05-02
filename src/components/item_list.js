@@ -20,7 +20,7 @@ class ItemList extends Component {
 		if (this.props.filterText.length !== 0 || this.props.filterSelect !== 'All') {
 			//set searchContacts array to filter out all contacts EXCEPT the one that matches the given input
 			contactList = this.props.filteredContacts.filter((contact) => {
-				return contact.sender.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1
+				return contact.name.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1
 			})
 		} 
 
@@ -29,7 +29,7 @@ class ItemList extends Component {
 				< SearchHeader />
 				{contactList.map((contact) => {
 					return (
-						<div key={contact.sender}>
+						<div key={contact.name}>
 							< ListItem contact={contact} />
 						</div>
 					)

@@ -32,7 +32,7 @@ class FolderSelect extends Component {
 		return(
 			<div className="col">
 				{
-					this.props.contact.organize ? 
+					this.props.contact.sorted ? 
 						<div className={`folder-option ${contactFolder}`} >
 							<select disabled>
 								<option value={contactFolder}>{contactFolder}</option>

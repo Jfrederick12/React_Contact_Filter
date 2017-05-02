@@ -29,7 +29,7 @@ class ListItem extends Component {
 		return(
 			<div className="flex-grid">
 				< CheckBox contact={this.props.contact} handleCheck={this.handleCheck} />			
-				<div className="col">{this.props.contact.sender}</div>
+				<div className="col">{this.props.contact.name}</div>
 				<div className="col">{this.props.contact.email}</div>
 				< FolderSelect 
 				  contact={this.props.contact} 

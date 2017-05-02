@@ -22,7 +22,7 @@ class SearchBar extends Component {
 			<div>
         <input
           type="text"
-          placeholder="Search by sender..."
+          placeholder="Search by name..."
           value={this.props.filterText}
           ref="filterTextInput"
           onChange={this.handleChange}

@@ -5,7 +5,7 @@ class SearchHeader extends Component {
 	render() {
 		return(
 			<div className="search-header">
-				<div>Organized</div>
+				<div>Sorted</div>
 				<div>Sender</div>
 				<div>Email</div>
 				<div>Folder</div>

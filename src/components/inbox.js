@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import SearchBar from './search_bar';
 import ItemList from './item_list';
 import SearchFilter from './search_filter';
+import Data from '../data/data.json';
 import '../styles/inbox.css';
-import contactList from '../data/seeds';
 
 class Inbox extends Component {
 	constructor() {
 		super();
 		this.state = {
-			contacts: contactList.sort((a,b) => {
-				let firstName = a.sender.toLowerCase();
-				let secondName = b.sender.toLowerCase();
+			contacts: Data.sort((a,b) => {
+				let firstName = a.name.toLowerCase();
+				let secondName = b.name.toLowerCase();
 				return (
 					(firstName < secondName) ? -1 : (firstName > secondName)
 				);
@@ -32,7 +32,7 @@ class Inbox extends Component {
 
   handleFilterChange(filterSelect) {
   	const filteredContacts = this.state.contacts.filter((contact) => {
-  		return contact.folder === filterSelect || contact.organize.toString() === filterSelect.toLowerCase()
+  		return contact.folder === filterSelect || contact.sorted.toString() === filterSelect.toLowerCase()
   	})
 
   	this.setState({
