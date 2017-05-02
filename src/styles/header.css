@@ -1,6 +1,35 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 h1 {
 	font-style: helvetica;
-	padding: 20px;
+	padding-left: 20px;
   color: #282828;
   text-align: left;
+}
+
+.social-icon nav {
+	text-align: right;
+  padding-top: 20px;
+  display: inline-block;
+}
+
+.social-icon a:visited {
+	color: #282828;
+}
+
+.social-icon a {
+		font-family: 'Quicksand', sans-serif;
+		font-size: 14px;
+		padding-left: 20px;
+    color: #282828;
+    text-decoration: none;
+		transition: color 0.5s ease;
+}
+
+
+.social-icon a:hover {
+    color: #ffd149;
+    text-decoration: none;
+    transition: color 0.5s ease;
 }
