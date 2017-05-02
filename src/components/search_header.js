@@ -6,7 +6,7 @@ class SearchHeader extends Component {
 		return(
 			<div className="search-header">
 				<div>Sorted</div>
-				<div>Sender</div>
+				<div>Name</div>
 				<div>Email</div>
 				<div>Folder</div>
 			</div>
